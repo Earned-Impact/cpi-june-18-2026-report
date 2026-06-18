@@ -1,0 +1,564 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CPI Monthly Report - June 2026</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=DM+Serif+Display&family=Poppins:wght@400;600;700&family=Roboto+Mono:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        font-family: "Poppins", sans-serif;
+        background: #f0f0f0;
+        color: #131315;
+        padding: 40px 24px;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .header-card {
+        background: #131315;
+        color: #f0f0f0;
+        border-radius: 12px;
+        padding: 40px 48px;
+        margin-bottom: 24px;
+        page-break-inside: avoid;
+        border-bottom: 3px solid #ff70db;
+        position: relative;
+      }
+      .header-top {
+        display: flex;
+        align-items: flex-start;
+        gap: 20px;
+      }
+      .header-card .label {
+        font-family: "Roboto Mono", monospace;
+        font-size: 11px;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: #909da3;
+        margin-bottom: 12px;
+      }
+      .header-card h1 {
+        font-family: "DM Serif Display", serif;
+        font-size: 34px;
+        font-weight: 400;
+        letter-spacing: -0.5px;
+        margin-bottom: 8px;
+      }
+      .header-card .period {
+        font-family: "Roboto Mono", monospace;
+        font-size: 14px;
+        color: #909da3;
+      }
+
+      .section-card {
+        background: #ffffff;
+        border-radius: 12px;
+        padding: 32px 40px;
+        margin-bottom: 24px;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.08);
+        page-break-inside: avoid;
+        border-left: 3px solid #ff70db;
+      }
+
+      .section-card h2 {
+        font-family: "DM Serif Display", serif;
+        font-size: 20px;
+        font-weight: 400;
+        color: #131315;
+        margin-bottom: 20px;
+        padding-bottom: 12px;
+        border-bottom: 2px solid #f0f0f0;
+      }
+
+      .subsection {
+        margin-bottom: 24px;
+      }
+      .subsection:last-child {
+        margin-bottom: 0;
+      }
+
+      .subsection h3 {
+        font-family: "Poppins", sans-serif;
+        font-size: 14px;
+        font-weight: 700;
+        color: #131315;
+        margin-bottom: 12px;
+      }
+
+      .metrics-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+        gap: 12px;
+        margin-bottom: 16px;
+      }
+
+      .metric-box {
+        background: #f0f0f0;
+        border-radius: 8px;
+        padding: 16px 20px;
+      }
+      .metric-box .metric-label {
+        font-family: "Roboto Mono", monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #909da3;
+        margin-bottom: 6px;
+      }
+      .metric-box .metric-value {
+        font-family: "DM Serif Display", serif;
+        font-size: 24px;
+        font-weight: 400;
+        color: #131315;
+        line-height: 1;
+      }
+      .metric-box .metric-sub {
+        font-size: 11px;
+        color: #909da3;
+        margin-top: 4px;
+      }
+      .metric-box .up {
+        color: #27ae60;
+        font-family: "Roboto Mono", monospace;
+        font-size: 11px;
+        font-weight: 600;
+        margin-top: 4px;
+      }
+
+      p {
+        font-size: 15px;
+        line-height: 1.7;
+        color: #3f5863;
+        margin-bottom: 10px;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+
+      .opportunity-box {
+        background: #f0f0f0;
+        border-left: 3px solid #ff70db;
+        border-radius: 0 8px 8px 0;
+        padding: 16px 20px;
+        margin-top: 16px;
+      }
+      .opportunity-box .opp-label {
+        font-family: "Roboto Mono", monospace;
+        font-size: 10px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #909da3;
+        margin-bottom: 6px;
+      }
+      .opportunity-box p {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+
+      .delivered-item {
+        background: #f0f0f0;
+        border-radius: 8px;
+        padding: 20px 24px;
+        margin-bottom: 12px;
+      }
+      .delivered-item:last-child {
+        margin-bottom: 0;
+      }
+      .delivered-item .item-title {
+        font-family: "DM Serif Display", serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #131315;
+        margin-bottom: 6px;
+      }
+      .delivered-item p {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+
+      .pipeline-item {
+        background: #f0f0f0;
+        border-radius: 8px;
+        padding: 20px 24px;
+        margin-bottom: 12px;
+        display: flex;
+        align-items: flex-start;
+        gap: 16px;
+      }
+      .pipeline-item:last-child {
+        margin-bottom: 0;
+      }
+      .pipeline-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #ff70db;
+        margin-top: 6px;
+        flex-shrink: 0;
+      }
+      .pipeline-item .item-title {
+        font-family: "DM Serif Display", serif;
+        font-weight: 400;
+        font-size: 16px;
+        color: #131315;
+        margin-bottom: 4px;
+      }
+      .pipeline-item p {
+        font-size: 14px;
+        margin-bottom: 0;
+      }
+      .pipeline-item .tag {
+        display: inline-block;
+        font-family: "Roboto Mono", monospace;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: #fff0fb;
+        color: #ff70db;
+        border-radius: 4px;
+        padding: 3px 10px;
+        margin-top: 8px;
+      }
+
+      .subsection-divider {
+        border: none;
+        border-top: 1px solid #f0f0f0;
+        margin: 24px 0;
+      }
+
+      .pending-badge {
+        display: inline-block;
+        font-family: "Roboto Mono", monospace;
+        font-size: 10px;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        background: #fff0fb;
+        color: #ff70db;
+        border-radius: 4px;
+        padding: 3px 10px;
+        margin-bottom: 10px;
+      }
+
+      a.report-link {
+        display: inline-block;
+        margin-top: 16px;
+        font-family: "Roboto Mono", monospace;
+        font-size: 12px;
+        font-weight: 600;
+        color: #131315;
+        text-decoration: none;
+        border: 2px solid #131315;
+        border-radius: 8px;
+        padding: 8px 16px;
+        transition: all 0.2s ease;
+      }
+      a.report-link:hover {
+        background: #131315;
+        color: #f0f0f0;
+      }
+
+      .input-section {
+        border-left-color: #3f5863;
+      }
+      .input-section h2 {
+        color: #3f5863;
+      }
+      .input-dot {
+        background: #3f5863;
+      }
+      .input-tag {
+        background: #eef1f2;
+        color: #3f5863;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <div class="header-card">
+      <div class="header-top">
+        <svg
+          preserveAspectRatio="xMidYMid meet"
+          overflow="visible"
+          style="display: block; width: 48px; height: 48px; flex-shrink: 0"
+          viewBox="0 0 95.1219 94.794"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <g id="Group">
+            <path
+              id="Vector"
+              d="M71.3443 0.000195313H74.6538C85.9545 0.000195313 95.1219 9.13708 95.1219 20.4002V74.394C95.1219 85.6571 85.9545 94.794 74.6538 94.794H71.3443V0.000195313Z"
+              fill="#F0F0F0"
+            />
+            <path
+              id="Vector_2"
+              d="M59.4555 22.3882V1.32169C59.4555 0.597633 58.8674 0 58.1294 0H23.7776C10.6434 0 0 10.608 0 23.6984V71.0953C0 84.1858 10.6434 94.7938 23.7776 94.7938H58.1294C58.8558 94.7938 59.4555 94.2076 59.4555 93.4721V72.4055C59.4555 71.6815 58.8674 71.0838 58.1294 71.0838H25.1037C24.3772 71.0838 23.7776 70.4977 23.7776 69.7621V60.5448C23.7776 59.8208 24.3657 59.2231 25.1037 59.2231H58.1294C58.8558 59.2231 59.4555 58.637 59.4555 57.9014V36.8349C59.4555 36.1108 58.8674 35.5132 58.1294 35.5132H25.1037C24.3772 35.5132 23.7776 34.927 23.7776 34.1915V24.9742C23.7776 24.2501 24.3657 23.6525 25.1037 23.6525H58.1294C58.8558 23.6525 59.4555 23.0663 59.4555 22.3308V22.3882Z"
+              fill="#F0F0F0"
+            />
+          </g>
+        </svg>
+        <div>
+          <div class="label">Monthly Report</div>
+          <h1>Chicago Psychoanalytic Institute</h1>
+          <div class="period">June 1 - 17, 2026</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- PERFORMANCE MARKETING -->
+    <div class="section-card">
+      <h2>Performance Marketing</h2>
+
+      <div class="subsection">
+        <h3>Google Ads</h3>
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <div class="metric-label">Spend</div>
+            <div class="metric-value">$344</div>
+            <div class="metric-sub">17 days</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Impressions</div>
+            <div class="metric-value">2,420</div>
+            <div class="up">+334% vs May</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Clicks</div>
+            <div class="metric-value">165</div>
+            <div class="up">+450% vs May</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Conversions</div>
+            <div class="metric-value">9</div>
+            <div class="up">+80% vs May</div>
+          </div>
+        </div>
+        <p>
+          Google Ads scaled significantly this month. Adult Therapy Services
+          leads with $288.73 spent, 146 clicks, and all 9 conversions. Child
+          &amp; Adolescent Therapy generated 14 clicks at $21.81. The top search
+          ad ("Mental Health Services Chicago") achieved a 9.46% CTR across
+          1,396 impressions. Mobile continues to drive 88.9% of all conversions.
+        </p>
+        <div class="opportunity-box">
+          <div class="opp-label">Top Keywords</div>
+          <p>
+            "therapist Chicago" led spend at $144.74 with 34 clicks (4.96% CTR).
+            "Chicago psychoanalytic institute" had the highest CTR at 28.35%
+            with 72 clicks. "stress management therapy" added 14 clicks at
+            $59.35 spend. "psychotherapy Chicago" followed with 4 clicks at
+            2.94% CTR.
+          </p>
+        </div>
+      </div>
+
+      <hr class="subsection-divider" />
+
+      <div class="subsection">
+        <h3>Meta (Facebook + Instagram) Ads</h3>
+        <div class="metrics-grid">
+          <div class="metric-box">
+            <div class="metric-label">Spend</div>
+            <div class="metric-value">$166</div>
+            <div class="metric-sub">~$10/day budget</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Impressions</div>
+            <div class="metric-value">13,889</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Reach</div>
+            <div class="metric-value">7,056</div>
+            <div class="metric-sub">unique people</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Clicks</div>
+            <div class="metric-value">342</div>
+          </div>
+          <div class="metric-box">
+            <div class="metric-label">Cost Per Click</div>
+            <div class="metric-value">$0.48</div>
+          </div>
+        </div>
+        <p>
+          Two ad sets are running under the brand awareness campaign. The
+          "Previous Post Brand Awareness" ad set is delivering the bulk of
+          results with 340 link clicks at $0.48 CPC across 13,599 impressions
+          and 6,830 unique reach. A newer "Depression - Open Targeting" ad set
+          is in early optimization with 290 impressions so far. The campaign
+          continues to build CPI's visibility across Facebook and Instagram on
+          pace with the $10/day budget.
+        </p>
+      </div>
+    </div>
+
+    <!-- SEO PERFORMANCE -->
+    <div class="section-card">
+      <h2>SEO Performance</h2>
+      <p>
+        May was a strong visibility month with one watchout. Google impressions
+        surged nearly 30% and visitors engaged more deeply, but form submissions
+        dipped. The focus now is turning that expanded reach into contacts.
+      </p>
+
+      <div class="metrics-grid" style="margin-top: 16px">
+        <div class="metric-box">
+          <div class="metric-label">Organic Sessions</div>
+          <div class="metric-value">16,523</div>
+          <div class="metric-sub">-0.83% MoM</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Google Impressions</div>
+          <div class="metric-value">3.09M</div>
+          <div class="up">+29.8% MoM</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Organic Clicks</div>
+          <div class="metric-value">13,300</div>
+          <div class="up">+1.5% MoM</div>
+        </div>
+        <div class="metric-box">
+          <div class="metric-label">Form Submits</div>
+          <div class="metric-value">107</div>
+          <div class="metric-sub" style="color: #e74c3c">-38.5% MoM</div>
+        </div>
+      </div>
+
+      <p style="margin-top: 16px">
+        Average engagement time rose to <strong>1m 09s</strong> (+14.3%) and
+        engagement rate climbed to <strong>65.6%</strong>, meaning visitors are
+        reading, not bouncing. The top breakout article was
+        <strong>Masochistic Character</strong>, which grew 58.7% to 976
+        sessions. <strong>Neurotic Personality</strong> rose 28.5% and
+        <strong>Double Bind</strong> added 17.9%. Impressions jumped to 3.09M as
+        CPI's keyword footprint widened into higher-volume terms like
+        "masochist" (301K impressions) and "neurotic" (108K impressions).
+      </p>
+
+      <div class="opportunity-box">
+        <div class="opp-label">Priority for June</div>
+        <p>
+          Form submissions dropped 38.5% to 107 even as traffic held steady.
+          More people are finding CPI and staying longer, but fewer took the
+          final step to reach out. Converting that expanded reach into contacts
+          is the top priority this month.
+        </p>
+      </div>
+      <a
+        href="https://cpi-may-2026-seo-report.vercel.app"
+        target="_blank"
+        class="report-link"
+        >View Full SEO Report</a
+      >
+    </div>
+
+    <!-- RECENTLY DELIVERED -->
+    <div class="section-card">
+      <h2>Recently Delivered</h2>
+
+      <div class="delivered-item">
+        <div class="item-title">Homepage Live</div>
+        <p>
+          The redesigned homepage is now live on chicagoanalysis.org, completing
+          the visual identity refresh with CPI's updated brand direction.
+        </p>
+      </div>
+
+      <div class="delivered-item">
+        <div class="item-title">Brand Identity Guide</div>
+        <p>
+          A comprehensive brand system covering typography, color, layout,
+          photography, and voice guidelines across all three CPI entities (the
+          Institute, Treatment Center, and Barr Harris Center). Includes an
+          AI-ready design token package for vendor and internal use.
+        </p>
+        <a
+          href="https://cpi-brand-design-guide.vercel.app/"
+          target="_blank"
+          class="report-link"
+          >View Brand Guide</a
+        >
+      </div>
+
+      <div class="delivered-item">
+        <div class="item-title">Barr-Harris 50th Anniversary Impact Report</div>
+        <p>
+          A donated-services impact report documenting Earned Impact's PR and
+          social media contribution to the Barr-Harris 50th anniversary event.
+          Targeted outlets including WBEZ Chicago Public Radio and WTTW Chicago
+          PBS, with 1.5M+ potential audience reach and an estimated $15-25K in
+          earned media value.
+        </p>
+        <a
+          href="https://cpi-barr-harris-report.vercel.app/"
+          target="_blank"
+          class="report-link"
+          >View Impact Report</a
+        >
+      </div>
+
+      <div class="delivered-item">
+        <div class="item-title">Updated Service Agreement</div>
+        <p>
+          A revised contract reflecting CPI's expanded scope of work, now
+          covering SEO, paid advertising, and brand strategy, has been delivered
+          for review and signature.
+        </p>
+      </div>
+    </div>
+
+    <!-- NEEDS YOUR INPUT -->
+    <div class="section-card input-section">
+      <h2>Needs Your Input</h2>
+
+      <div class="pipeline-item">
+        <div class="pipeline-dot input-dot"></div>
+        <div>
+          <div class="item-title">Service Agreement Review</div>
+          <p>
+            The updated service agreement is ready for your review. Please let
+            us know if you have any questions or changes before we finalize.
+          </p>
+          <span class="tag input-tag">Pending review</span>
+        </div>
+      </div>
+
+      <div class="pipeline-item">
+        <div class="pipeline-dot input-dot"></div>
+        <div>
+          <div class="item-title">Crawl Budget Optimization</div>
+          <p>
+            Our weekly site testing identified that Google's crawl budget on
+            chicagoanalysis.org needs optimization. When Google crawls your
+            site, it allocates a limited "budget" of pages to index per visit.
+            If that budget is being spent on low-value pages, your important
+            treatment and program pages may get indexed less frequently. We will
+            share full technical details in a follow-up.
+          </p>
+          <p style="margin-top: 8px">
+            <strong>Action needed:</strong> Please confirm the best contact for
+            your site developer (we believe this may be Archstone) so we can
+            coordinate the technical fix.
+          </p>
+          <span class="tag input-tag">Needs response</span>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
